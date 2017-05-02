@@ -18,6 +18,10 @@ RUN apk upgrade --update && \
     export PERL_MM_USE_DEFAULT=1 && \
     perl -MCPAN -e "install Lchown" && \
     rm -rf /var/cache/apk/* && rm -rf /tmp/* && \
+    mkdir -p /root/.ssh && \
+    chmod 700 /root/.ssh && \
+    echo "StrictHostKeyChecking no" >> /root/.ssh/config && \
+    echo "UserKnownHostsFile=/dev/null" >> /root/.ssh/config && \
     mkdir -p /backup
     
 COPY docker-entrypoint.sh /root/
