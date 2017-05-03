@@ -14,7 +14,8 @@ RUN apk upgrade --update && \
       gcc \
       abuild \
       binutils \
-      perl-dev && \
+      perl-dev \
+      git && \
     export PERL_MM_USE_DEFAULT=1 && \
     perl -MCPAN -e "install Lchown" && \
     rm -rf /var/cache/apk/* && rm -rf /tmp/* && \
